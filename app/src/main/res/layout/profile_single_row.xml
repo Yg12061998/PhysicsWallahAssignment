@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.yogigupta1206.physicswallah.network.model.profile.Profile" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/list_background"
+        android:clickable="true"
+        android:focusable="true">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dp_16"
+            android:layout_marginVertical="@dimen/dp_8"
+            app:cardCornerRadius="@dimen/dp_10"
+            app:cardElevation="@dimen/dp_4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_root"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_17">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/card_profile"
+                    setProfileUrl="@{data.profileImage}"
+                    android:layout_width="@dimen/dp_78"
+                    android:layout_height="@dimen/dp_82"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
+                    app:srcCompat="@drawable/empty_profile" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txt_name"
+                    style="@style/bold16indigo"
+                    android:layout_width="@dimen/dp_0"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_5"
+                    android:layout_marginEnd="@dimen/dp_8"
+                    android:ellipsize="end"
+                    android:text="@{data.name}"
+                    app:layout_constraintEnd_toStartOf="@id/card_profile"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Name" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/txt_subject_qualification"
+                    style="@style/normal14black70"
+                    subjectQualification="@{data}"
+                    android:layout_width="@dimen/dp_0"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_5"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginEnd="@dimen/dp_8"
+                    android:ellipsize="end"
+                    app:layout_constraintEnd_toStartOf="@+id/card_profile"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_name"
+                    tools:text="Subjects  \u2022  Qualifications" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_more"
+                    style="@style/normal14white70"
+                    android:layout_width="@dimen/dp_102"
+                    android:layout_height="@dimen/dp_27"
+                    android:layout_marginStart="@dimen/dp_5"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginEnd="@dimen/dp_8"
+                    android:background="@drawable/btn_bg_indigo_100"
+                    android:gravity="center"
+                    android:text="@string/view_more"
+                    android:textAllCaps="false"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txt_subject_qualification" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
